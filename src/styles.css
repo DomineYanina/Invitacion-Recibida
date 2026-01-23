@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --rojo-festejo: #9b0000;
+  --plata-glitter: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3);
+}
+
+body {
+  background-color: var(--rojo-festejo);
+  color: white;
+  margin: 0;
+  padding-bottom: 100px; /* Espacio para el reproductor fijo */
+}
+
+h1, h2, .merienda { font-family: 'Merienda', cursive; }
+.cabin-sketch { font-family: 'Cabin Sketch', cursive; }
+
+.btn-plata {
+  background: var(--plata-glitter);
+  color: var(--rojo-festejo);
+  border: none;
+  padding: 12px 24px;
+  font-family: 'Merienda', sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+}

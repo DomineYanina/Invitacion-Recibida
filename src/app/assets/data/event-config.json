@@ -1,0 +1,20 @@
+{
+  "fechaTarget": "2026-06-30T10:00:00",
+  "playlistUrl": "https://open.spotify.com/embed/playlist/TU_ID_AQUI",
+  "universidad": {
+    "nombre": "UNLaM",
+    "direccion": "Florencio Varela 1903, San Justo",
+    "maps": "http://googleusercontent.com/maps.google.com/9",
+    "aula": "Pabellón L - Aula 205 (A confirmar)",
+    "mapaInterno": "assets/img/mapa-unlam.png"
+  },
+  "depto": {
+    "direccion": "Tu Dirección 123",
+    "maps": "https://goo.gl/maps/TuLinkPrivado",
+    "horaSalida": "09:15"
+  },
+  "bar": {
+    "nombre": "Neon Night Bar",
+    "maps": "https://goo.gl/maps/LinkAlBar"
+  }
+}
