@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-logistica',
-  templateUrl: './logistica.component.html'
+  templateUrl: './logistica.html'
 })
 export class LogisticaComponent implements OnInit {
   esAmigo: boolean = false;

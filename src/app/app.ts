@@ -6,8 +6,8 @@ import { PlayerComponent } from './components/player/player';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, PlayerComponent], // Importante agregar estos tres
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
 export class AppComponent {
   title = 'landing-graduacion';
