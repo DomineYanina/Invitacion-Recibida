@@ -22,6 +22,7 @@ export class PlayerComponent implements OnInit {
 
   public safeUrl!: SafeResourceUrl;
   public musicaActivada: boolean = false;
+  public estaMinimizado: boolean = false;
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -33,5 +34,9 @@ export class PlayerComponent implements OnInit {
   // 3. Método para activar la interfaz del reproductor tras la interacción del usuario
   activarMusica() {
     this.musicaActivada = true;
+  }
+
+  toggleMinimizar() {
+    this.estaMinimizado = !this.estaMinimizado;
   }
 }

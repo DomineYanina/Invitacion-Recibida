@@ -30,7 +30,7 @@
   bottom: 20px;     /* Distancia desde abajo */
   right: 20px;      /* Distancia desde la derecha */
   width: 150px;     /* Ancho del cuadrado */
-  height: 150px;    /* Alto del cuadrado */
+  height: 100px;    /* Alto del cuadrado */
   z-index: 1000;    /* Para que esté por encima de otros elementos */
   
   /* Estética */
@@ -42,6 +42,59 @@
   
   /* Animación de entrada suave */
   animation: slideIn 0.5s ease-out;
+}
+
+/* Botón X dentro del cuadrado */
+.btn-control.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: rgba(139, 0, 0, 0.8); /* Rojo profundo */
+  color: white;
+  border: 1px solid #c0c0c0; /* Plata */
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1010;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Estado Minimizado: Esencial para que la música NO pare */
+.reproductor-container.minimizado {
+  transform: scale(0);      /* Lo achicamos a cero */
+  transform-origin: bottom right;
+  opacity: 0;               /* Lo hacemos invisible */
+  pointer-events: none;     /* Evitamos que bloquee clics */
+  transition: all 0.4s ease-in-out;
+}
+
+/* Burbuja para restaurar (estética glitter) */
+.bubble-restore {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3); /* Plata glitter */
+  border: 2px solid #8b0000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1005;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 @keyframes slideIn {

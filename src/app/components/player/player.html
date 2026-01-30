@@ -4,7 +4,12 @@
   </button>
 </div>
 
-<div class="reproductor-container" *ngIf="musicaActivada">
+<div class="reproductor-container" 
+     [class.minimizado]="estaMinimizado" 
+     *ngIf="musicaActivada">
+  
+  <button class="btn-control close" (click)="toggleMinimizar()">×</button>
+  
   <iframe 
     [src]="safeUrl" 
     width="100%" 
@@ -13,4 +18,10 @@
     allow="autoplay; encrypted-media; picture-in-picture" 
     allowfullscreen>
   </iframe>
+</div>
+
+<div class="bubble-restore" 
+     *ngIf="musicaActivada && estaMinimizado" 
+     (click)="toggleMinimizar()">
+  <span class="merienda">🎵</span>
 </div>
