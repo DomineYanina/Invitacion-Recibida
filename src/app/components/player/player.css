@@ -30,7 +30,7 @@
   bottom: 20px;     /* Distancia desde abajo */
   right: 20px;      /* Distancia desde la derecha */
   width: 150px;     /* Ancho del cuadrado */
-  height: 100px;    /* Alto del cuadrado */
+  height: 150px;    /* Alto del cuadrado */
   z-index: 1000;    /* Para que esté por encima de otros elementos */
   
   /* Estética */
@@ -71,6 +71,34 @@
   pointer-events: none;     /* Evitamos que bloquee clics */
   transition: all 0.4s ease-in-out;
 }
+
+/* Botón inicial que satisface el autoplay */
+.bubble-activation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3); /* Plata glitter */
+  border: 2px solid #8b0000; /* Borde rojo profundo */
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  animation: bounce 2s infinite;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8b0000;
+  font-weight: bold;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  60% {transform: translateY(-5px);}
+}
+
+/* ... (mantené los estilos anteriores de .reproductor-container y .bubble-restore) ... */
 
 /* Burbuja para restaurar (estética glitter) */
 .bubble-restore {

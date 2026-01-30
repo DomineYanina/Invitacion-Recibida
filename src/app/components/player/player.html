@@ -1,7 +1,5 @@
-<div *ngIf="!musicaActivada" class="welcome-overlay">
-  <button class="btn-inicio merienda" (click)="activarMusica()">
-    {{ config.musica.botonInicio }}
-  </button>
+<div *ngIf="!musicaActivada" class="bubble-activation" (click)="activarMusica()">
+  <span class="merienda">¡Que empiece la fiesta! 🎵</span>
 </div>
 
 <div class="reproductor-container" 
