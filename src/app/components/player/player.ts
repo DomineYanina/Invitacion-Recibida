@@ -14,7 +14,7 @@ export class PlayerComponent implements OnInit {
   public config = {
     musica: {
       // HEMOS AGREGADO '/embed/' después de spotify.com para evitar la redirección
-      playlistUrl: 'https://open.spotify.com/embed/playlist/6qWneygRN9bqykPXPKrvry?si=6c807afd8e084837?utm_source=generator&theme=0',
+      playlistUrl: 'https://www.youtube.com/embed/videoseries?list=PL5bfumkVTEEvGqxvsdht3yCYwUvHTMJIH',
       botonInicio: '¡Que empiece la fiesta!',
       modo: 'compacto'
     }
