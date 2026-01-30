@@ -1,16 +1,18 @@
-<div class="footer-player">
+<div *ngIf="!musicaActivada" class="welcome-overlay">
+  <button class="btn-inicio merienda" (click)="activarMusica()">
+    {{ config.musica.botonInicio }}
+  </button>
+</div>
+
+<div *ngIf="musicaActivada" class="footer-player">
   <div class="glitter-border"></div>
-  <div class="player-content">
-    <p class="cabin-sketch player-label">🎵 Reproduciendo el Musical de Yani...</p>
-    <div class="iframe-container">
-      <iframe 
-        [src]="safeUrl" 
-        width="100%" 
-        height="80" 
-        frameBorder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
+  <p class="cabin-sketch">Status: Playing Musical... 🐾</p>
+  <iframe 
+    [src]="safeUrl" 
+    width="100%" 
+    height="80" 
+    frameBorder="0" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
 </div>

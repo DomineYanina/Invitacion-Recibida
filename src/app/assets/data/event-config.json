@@ -16,5 +16,10 @@
   "bar": {
     "nombre": "Neon Night Bar",
     "maps": "https://goo.gl/maps/LinkAlBar"
+  },
+  "musica": {
+    "playlistUrl": "https://open.spotify.com/playlist/6qWneygRN9bqykPXPKrvry?si=6c807afd8e084837",
+    "botonInicio": "¡Que empiece la fiesta!",
+    "modo": "compacto"
   }
 }

@@ -1,21 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-player',
   standalone: true,
+  imports: [CommonModule], 
   templateUrl: './player.html',
-  styleUrls: ['./player.css']
+  styleUrl: './player.css'
 })
 export class PlayerComponent implements OnInit {
-  safeUrl!: SafeResourceUrl;
+  // 1. Configuración de datos de la landing
+  public config = {
+    musica: {
+      // HEMOS AGREGADO '/embed/' después de spotify.com para evitar la redirección
+      playlistUrl: 'https://open.spotify.com/embed/playlist/6qWneygRN9bqykPXPKrvry?si=6c807afd8e084837?utm_source=generator&theme=0',
+      botonInicio: '¡Que empiece la fiesta!',
+      modo: 'compacto'
+    }
+  };
+
+  public safeUrl!: SafeResourceUrl;
+  public musicaActivada: boolean = false;
 
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    // Reemplaza con tu ID de playlist real de Spotify
-    const playlistId = 'TU_ID_AQUÍ'; 
-    const url = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
-    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    // 2. Aplicamos el bypass de seguridad para que Angular confíe en el iframe de Spotify
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.config.musica.playlistUrl);
+  }
+
+  // 3. Método para activar la interfaz del reproductor tras la interacción del usuario
+  activarMusica() {
+    this.musicaActivada = true;
   }
 }
