@@ -1,1 +1,10 @@
-<p>logistica works!</p>
+<section class="logistica-section merienda">
+  <h2>¿Cómo llegar a la UNLaM?</h2>
+  
+  <div class="search-box">
+    <input #direccion type="text" placeholder="Ingresá tu barrio o calle..." class="cabin-sketch">
+    <button (click)="calcularRuta(direccion.value)" class="btn-plata">Calcular Ruta</button>
+  </div>
+
+  <div id="map"></div>
+</section>

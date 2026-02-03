@@ -1,8 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Merienda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Henny+Penny&family=Merienda&display=swap');
+
+.delicious-handrawn-regular {
+  font-family: "Delicious Handrawn", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .merienda{
   font-family: "Merienda", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Reseteo básico para asegurar full screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* La sección contenedora de la imagen */
+.hero-portada {
+  position: relative;
+  /* Altura del 100% de la ventana del navegador */
+  height: 100vh;
+  min-height: 600px; /* Para que no se achique mucho en celus */
+  
+  /* Configuración de la imagen de fondo */
+  /* ASEGURATE que la ruta coincida con donde guardaste la imagen */
+  background-image: url('./assets/images/portada-unlam.png');
+  background-size: cover;   /* Escala la imagen para llenar todo sin deformar */
+  background-position: center center; /* Centra el foco en la chica y el cartel */
+  background-repeat: no-repeat;
+  
+  /* Flexbox para centrar el contenido vertical y horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white; /* Texto blanco para que resalte en la noche */
+  overflow: hidden;
+}
+
+/* El contenido (título y contador) */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Para que esté por encima del overlay */
+  padding: 20px;
+}
+
+/* Estilo del título "¡ME RECIBO!" */
+.titulo-principal {
+  font-size: 4rem; /* Bien grande */
+  margin-bottom: 30px;
+  color: #ffffff;
+  /* Sombra de texto para que se lea perfecto sobre las luces de fondo */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
+               0 0 20px rgba(139, 0, 0, 0.5), /* Un toque de rojo profundo */
+               2px 2px 4px rgba(0,0,0,0.8);
+  animation: fadeInDown 1s ease-out;
+}
+
+/* Opcional: Overlay oscuro sutil para asegurar contraste */
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Capa negra al 30% */
+  z-index: 1;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 2.5rem; /* Un poco más chico en pantallas chicas */
+  }
+}
+
+/* Animación de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
