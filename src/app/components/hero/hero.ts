@@ -7,19 +7,19 @@ import { interval } from 'rxjs';
   // hero.component.ts (solo la parte del template)
   template: `
     <section class="hero-section">
-      
       <div class="overlay"></div>
 
       <div class="hero-content">
-        <h1 class="titulo-principal henny-penny-regular">¡ME RECIBO!</h1>
+        <h1 class="titulo-principal henny-penny-regular neon-green-text">
+          ¡ME RECIBO!
+        </h1>
         
-        <div class="countdown cabin-sketch delicious-handrawn-regular">
+        <div class="countdown delicious-handrawn-regular neon-green-subtext">
           <span>{{days}}d : {{hours}}h : {{mins}}m : {{secs}}s</span>
         </div>
       </div>
     </section>
   `,
-  // Asegurate de que esta línea esté presente para cargar los estilos
   styleUrls: ['./hero.css']
 })
 export class HeroComponent implements OnInit {
