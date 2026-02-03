@@ -1,57 +1,60 @@
-.welcome-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(139, 0, 0, 0.9); /* Rojo profundo con transparencia */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
+/* player.css */
 
-.btn-inicio {
-  padding: 20px 40px;
-  font-size: 2rem;
-  background: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3); /* Plata glitter */
-  color: #8b0000;
-  border: none;
+/* 1. Botón inicial (El que flota sobre la portada) */
+.bubble-activation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  /* Fondo oscuro para que no compita con la foto pero resalte el neón */
+  background: rgba(0, 0, 0, 0.85); 
+  border: 2px solid #2ecc71; /* Borde verde esmeralda neón */
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 0 20px #fff;
-  transition: transform 0.3s;
+  z-index: 2000;
+  /* Sombra con brillo verde */
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+  animation: bounce 2s infinite;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2ecc71; /* Texto en verde neón */
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.btn-inicio:hover {
-  transform: scale(1.1);
+.bubble-activation:hover {
+  background: #2ecc71;
+  color: #000;
+  box-shadow: 0 0 25px #2ecc71;
 }
 
+/* 2. Contenedor del Reproductor Cuadrado */
 .reproductor-container {
   position: fixed;
-  bottom: 20px;     /* Distancia desde abajo */
-  right: 20px;      /* Distancia desde la derecha */
-  width: 150px;     /* Ancho del cuadrado */
-  height: 150px;    /* Alto del cuadrado */
-  z-index: 1000;    /* Para que esté por encima de otros elementos */
-  
-  /* Estética */
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: 150px;
+  z-index: 1000;
   background-color: #000;
-  border: 3px solid #c0c0c0; /* Borde plateado */
-  border-radius: 15px;       /* Bordes redondeados */
-  overflow: hidden;          /* Para que el iframe no se salga de las esquinas redondeadas */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
-  
-  /* Animación de entrada suave */
+  /* Borde neón para que parezca parte del cartel de la UNLaM */
+  border: 3px solid #2ecc71; 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.4);
   animation: slideIn 0.5s ease-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s;
 }
 
-/* Botón X dentro del cuadrado */
+/* 3. Botón de cerrar (Mantenemos el rojo como acento de "alarma/cerrar") */
 .btn-control.close {
   position: absolute;
   top: 5px;
   right: 10px;
-  background: rgba(139, 0, 0, 0.8); /* Rojo profundo */
+  background: rgba(139, 0, 0, 0.9); /* Rojo profundo de tu bengala */
   color: white;
-  border: 1px solid #c0c0c0; /* Plata */
+  border: 1px solid #2ecc71; /* Contraste con el borde verde */
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -61,35 +64,68 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  transition: transform 0.2s;
 }
 
-/* Estado Minimizado: Esencial para que la música NO pare */
-.reproductor-container.minimizado {
-  transform: scale(0);      /* Lo achicamos a cero */
-  transform-origin: bottom right;
-  opacity: 0;               /* Lo hacemos invisible */
-  pointer-events: none;     /* Evitamos que bloquee clics */
-  transition: all 0.4s ease-in-out;
+.btn-control.close:hover {
+  transform: scale(1.2);
+  background: #ff0000;
 }
 
-/* Botón inicial que satisface el autoplay */
-.bubble-activation {
+/* 4. Burbuja de Restauración (🎵) */
+.bubble-restore {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 15px 25px;
-  background: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3); /* Plata glitter */
-  border: 2px solid #8b0000; /* Borde rojo profundo */
-  border-radius: 50px;
+  width: 55px;
+  height: 55px;
+  background: #000;
+  border: 2px solid #2ecc71;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  z-index: 2000;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  animation: bounce 2s infinite;
+  box-shadow: 0 0 15px #2ecc71;
+  z-index: 1005;
+  color: #2ecc71;
+  font-size: 1.5rem;
+  animation: pulseNeon 2s infinite;
+}
+
+/* player.css */
+
+/* Estilos para el nuevo icono SVG */
+.icono-nota {
+  width: 24px;
+  height: 24px;
+  /* Aquí definís el rojo exacto (usando el rojo profundo de tu paleta) */
+  color: #ff3131; 
+  /* Agregamos un brillo sutil para que resalte sobre el fondo oscuro */
+  filter: drop-shadow(0 0 5px rgba(255, 49, 49, 0.6));
+  transition: transform 0.3s ease;
+}
+
+/* Ajuste para que el botón mantenga el alineamiento */
+.bubble-activation {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #8b0000;
-  font-weight: bold;
+  gap: 12px; /* Espacio entre el texto y la nota roja */
+  /* ... resto de tus estilos ... */
+}
+
+/* Efecto al pasar el mouse por el botón */
+.bubble-activation:hover .icono-nota {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff0000; /* Un rojo más brillante al hover */
+}
+
+/* --- ANIMACIONES TEMATIZADAS --- */
+
+@keyframes pulseNeon {
+  0% { transform: scale(1); box-shadow: 0 0 10px #2ecc71; }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px #2ecc71; }
+  100% { transform: scale(1); box-shadow: 0 0 10px #2ecc71; }
 }
 
 @keyframes bounce {
@@ -98,50 +134,23 @@
   60% {transform: translateY(-5px);}
 }
 
-/* ... (mantené los estilos anteriores de .reproductor-container y .bubble-restore) ... */
-
-/* Burbuja para restaurar (estética glitter) */
-.bubble-restore {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(145deg, #c0c0c0, #ffffff, #b3b3b3); /* Plata glitter */
-  border: 2px solid #8b0000;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  z-index: 1005;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
 @keyframes slideIn {
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Ajuste para pantallas pequeñas (móviles) */
+/* Estado Minimizado */
+.reproductor-container.minimizado {
+  transform: scale(0);
+  transform-origin: bottom right;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ajuste móvil */
 @media (max-width: 600px) {
   .reproductor-container {
-    width: 100px;
-    height: 100px;
-    bottom: 10px;
-    right: 10px;
+    width: 120px;
+    height: 120px;
   }
 }

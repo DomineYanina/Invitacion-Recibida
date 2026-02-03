@@ -1,5 +1,8 @@
 <div *ngIf="!musicaActivada" class="bubble-activation" (click)="activarMusica()">
-  <span class="merienda">¡Que empiece la fiesta! 🎵</span>
+  <span class="merienda">¡Que empiece la fiesta!</span>
+  <svg class="icono-nota" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+  </svg>
 </div>
 
 <div class="reproductor-container" 
@@ -21,5 +24,7 @@
 <div class="bubble-restore" 
      *ngIf="musicaActivada && estaMinimizado" 
      (click)="toggleMinimizar()">
-  <span class="merienda">🎵</span>
+  <svg class="icono-nota" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+  </svg>
 </div>
