@@ -26,7 +26,7 @@ export class HeroComponent implements OnInit {
   days: number = 0; hours: number = 0; mins: number = 0; secs: number = 0;
 
   ngOnInit() {
-    const target = new Date('2026-06-30T10:00:00').getTime();
+    const target = new Date('2026-07-18T10:00:00').getTime();
     interval(1000).subscribe(() => {
       const now = new Date().getTime();
       const diff = target - now;

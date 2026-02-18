@@ -39,3 +39,24 @@ h1, h2, .merienda { font-family: 'Merienda', cursive; }
   border: 2px solid #c0c0c0; /* Tu plata glitter */
   margin-top: 20px;
 }
+
+/* styles.css - Estilos globales */
+
+/* Separador de Neón */
+.neon-divider {
+  height: 2px; /* Una línea fina */
+  border: none;
+  /* Un gradiente que hace que la línea brille más en el centro */
+  background: linear-gradient(to right, transparent, #2ecc71, transparent);
+  /* Una sombra para el efecto "glow" */
+  box-shadow: 0 0 10px #2ecc71, 0 0 20px rgba(46, 204, 113, 0.5);
+  margin: 0 auto; /* Centrado */
+  width: 80%; /* No ocupa todo el ancho para que sea más sutil */
+  opacity: 0.7; /* Un poco transparente para no robar protagonismo */
+}
+
+/* Variante roja por si querés usarla cerca de la sección roja */
+.neon-divider.red {
+  background: linear-gradient(to right, transparent, #ff3131, transparent);
+  box-shadow: 0 0 10px #ff3131, 0 0 20px rgba(255, 49, 49, 0.5);
+}

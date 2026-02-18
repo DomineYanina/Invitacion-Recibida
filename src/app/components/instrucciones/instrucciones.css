@@ -1,0 +1,156 @@
+/* src/app/components/instrucciones/instrucciones.css */
+
+.instrucciones-container {
+  padding: 100px 20px;
+  /* Un fondo oscuro con un tinte rojo muy sutil para la sección */
+  background: linear-gradient(
+    to bottom,          /* La dirección es hacia abajo */
+    #0a0a0a 0%,         /* Empieza en negro puro (se funde con la sección anterior) */
+    rgba(50, 0, 0, 0.9) 25%, /* Se vuelve rojo oscuro intenso al 25% de la altura */
+    rgba(50, 0, 0, 0.9) 75%, /* Se mantiene rojo hasta el 75% */
+    #0a0a0a 100%        /* Vuelve a negro puro al final (se funde con la siguiente) */
+  );
+  color: white;
+  text-align: center;
+  transition: background 0.5s ease;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #ff3131;
+  text-shadow: 0 0 15px rgba(255, 49, 49, 0.6);
+  margin-bottom: 50px;
+}
+
+/* --- GRID DE REGLAS --- */
+.rules-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Espacio entre las tarjetas */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Estilo base para las tarjetas */
+.rule-box {
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%; /* Ocupa el ancho disponible... */
+  max-width: 450px; /* ...hasta un máximo */
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rule-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Títulos de las tarjetas */
+.rule-box h3 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Estilo de las listas */
+.rule-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rule-box li {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; /* Alinea verticalmente el icono y el texto */
+  gap: 15px;
+  font-family: 'Delicious Handrawn', cursive;
+}
+
+/* Iconos con brillo */
+.icon {
+  font-size: 2rem;
+  /* Sombra para que los iconos también brillen */
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* --- TARJETA "SÍ" (VERDE NEÓN) --- */
+.box-si {
+  border: 3px solid #2ecc71;
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3);
+}
+
+.box-si h3 {
+  color: #2ecc71;
+  text-shadow: 0 0 15px #2ecc71;
+}
+
+.box-si .icon {
+  color: #2ecc71;
+}
+
+/* --- TARJETA "NO" (ROJO NEÓN) --- */
+.box-no {
+  border: 3px solid #ff3131;
+  box-shadow: 0 0 25px rgba(255, 49, 49, 0.3);
+}
+
+.box-no h3 {
+  color: #ff3131;
+  text-shadow: 0 0 15px #ff3131;
+}
+
+.box-no .icon {
+  color: #ff3131;
+}
+
+/* --- SECCIÓN ESPECIAL VINO (Se mantiene tu diseño) --- */
+.wine-challenge {
+  margin: 70px auto 0;
+  max-width: 700px;
+  background: rgba(139, 0, 0, 0.3);
+  border: 3px solid #ff3131;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(255, 49, 49, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.wine-challenge::before {
+  content: "🍷";
+  position: absolute;
+  font-size: 8rem;
+  right: -20px;
+  bottom: -20px;
+  opacity: 0.15;
+  transform: rotate(-15deg);
+  filter: drop-shadow(0 0 10px #ff3131);
+}
+
+.wine-content h3 {
+  color: #ff3131;
+  text-shadow: 0 0 15px #ff3131;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.wine-content p {
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .rules-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .rule-box {
+    width: 95%;
+  }
+}

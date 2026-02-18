@@ -1,0 +1,16 @@
+<section class="faq-container">
+  <h2 class="merienda section-title">Dudas Frecuentes</h2>
+  
+  <div class="faq-list">
+    <div *ngFor="let item of preguntas; let i = index" class="faq-item" [class.active]="item.abierta">
+      <div class="faq-question" (click)="togglePregunta(i)">
+        <h3 class="delicious-handrawn-regular">{{ item.q }}</h3>
+        <span class="faq-icon">{{ item.abierta ? '−' : '+' }}</span>
+      </div>
+      
+      <div class="faq-answer" *ngIf="item.abierta">
+        <p class="delicious-handrawn-regular">{{ item.a }}</p>
+      </div>
+    </div>
+  </div>
+</section>

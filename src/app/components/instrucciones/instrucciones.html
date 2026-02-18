@@ -1,0 +1,32 @@
+<section class="instrucciones-container">
+  <h2 class="merienda section-title">Protocolo de Enchastre</h2>
+
+  <div class="rules-grid">
+    <div class="rule-box box-si">
+      <h3 class="henny-penny-regular">¡Se vale todo esto! ✅</h3>
+      <ul>
+        <li *ngFor="let item of permitidos">
+          <span class="icon">{{ item.icono }}</span> {{ item.nombre }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="rule-box box-no">
+      <h3 class="henny-penny-regular">¡Esto NI lo saquen! ❌</h3>
+      <ul>
+        <li *ngFor="let item of prohibidos">
+          <span class="icon">{{ item.icono }}</span> {{ item.nombre }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wine-challenge">
+    <div class="wine-content">
+      <h3 class="merienda">🍷 Requisito de Hidratación</h3>
+      <p class="delicious-handrawn-regular">
+        Se acepta (y se recomienda) el vino en tetrabrik para hidratar a la flamante programadora durante el festejo. ¡Salud!
+      </p>
+    </div>
+  </div>
+</section>
