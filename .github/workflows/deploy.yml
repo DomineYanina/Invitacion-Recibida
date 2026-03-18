@@ -1,0 +1,32 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # o 'master' si tu rama principal se llama así
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # La versión de Node que usás en tu máquina
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar proyecto Angular
+        # CAMBIÁ ESTO por el nombre exacto de tu repositorio
+        run: npx ng build --configuration production --base-href /Invitacion-Recibida/
+
+      - name: Desplegar a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/invitacion-recibida/browser # Verificá que esta ruta coincida con tu carpeta dist/
