@@ -23,7 +23,7 @@ jobs:
 
       - name: Compilar proyecto Angular
         # CAMBIÁ ESTO por el nombre exacto de tu repositorio
-        run: npx ng build --configuration production --base-href /Invitacion-Recibida/
+        run: npx ng build --configuration production --base-href /landing-graduacion/
 
       - name: Desplegar a GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
