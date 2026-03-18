@@ -42,6 +42,11 @@ export class FaqComponent {
       abierta: false
     },
     {
+      q: '¿Cuanto dura la defensa?',
+      a: 'Dura entre 40 y 50 minutos, por lo que recomiendo ir previamente al baño.',
+      abierta: false
+    },
+    {
       q: '¿Qué líneas de colectivo pasan por la universidad?',
       a: 'Las opciones principales incluyen las líneas 46, 88, 96, 174, 180, 205, 242, 378, 382, 620, 621, 622 y 628.',
       abierta: false

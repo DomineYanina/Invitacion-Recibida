@@ -1,5 +1,14 @@
 /* player.css */
 
+/* Forzamos a que el Host (el tag <app-player> en sí) sea completamente transparente */
+:host {
+  display: block;
+  background-color: transparent !important;
+  pointer-events: none; /* Permite hacer clic "a través" de los espacios vacíos */
+}
+
+/* Nota: Asegurate de agregar pointer-events: auto; a tus botones (.bubble-activation, .reproductor-container) para que sigan siendo clickeables */
+
 /* 1. Botón inicial (El que flota sobre la portada) */
 .bubble-activation {
   position: fixed;

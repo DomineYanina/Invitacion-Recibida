@@ -98,3 +98,14 @@ html, body {
     transform: translateY(0);
   }
 }
+
+/* Forzamos la oscuridad total en la base */
+.contenido-pagina {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+/* Evitamos que los sections sueltos hereden colores viejos */
+section {
+  background-color: transparent;
+}

@@ -1,0 +1,23 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <div class="logo-container" *ngIf="!isCollapsed">
+      <!--<span class="unlam-text">UNLaM</span>
+      <span class="grad-year">2026</span>-->
+    </div>
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      {{ isCollapsed ? '▶' : '◀' }}
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li *ngFor="let item of navItems">
+        <a [href]="item.anchor" class="nav-link" [title]="item.label">
+          <span class="icon">{{ item.icon }}</span>
+          <span class="label" *ngIf="!isCollapsed">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</aside>

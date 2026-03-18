@@ -156,3 +156,9 @@
   margin-bottom: 10px;
   list-style: none;
 }
+
+/* Agregá esto en el CSS de cada componente (logistica, faq, etc.) */
+:host {
+  display: block;
+  scroll-margin-top: 80px; /* Da un aire antes de llegar al título */
+}

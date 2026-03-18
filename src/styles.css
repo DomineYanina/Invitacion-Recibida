@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: var(--rojo-festejo);
+  background-color: #000000;
   color: white;
   margin: 0;
   padding-bottom: 100px; /* Espacio para el reproductor fijo */
@@ -59,4 +59,23 @@ h1, h2, .merienda { font-family: 'Merienda', cursive; }
 .neon-divider.red {
   background: linear-gradient(to right, transparent, #ff3131, transparent);
   box-shadow: 0 0 10px #ff3131, 0 0 20px rgba(255, 49, 49, 0.5);
+}
+
+/* src/styles.css */
+
+html {
+  scroll-behavior: smooth; /* 👈 La magia ocurre acá */
+  scroll-padding-top: 20px; /* Evita que el contenido quede pegado al techo */
+}
+
+/* Ajuste para que el contenido respete el ancho del sidebar */
+.main-wrapper {
+  margin-left: 260px; /* Coincide con el ancho de tu sidebar abierto */
+  transition: margin-left 0.4s ease;
+  min-height: 100vh;
+}
+
+/* Si tu sidebar se colapsa, podés usar una clase en el body para ajustar este margen */
+body.sidebar-collapsed .main-wrapper {
+  margin-left: 80px;
 }

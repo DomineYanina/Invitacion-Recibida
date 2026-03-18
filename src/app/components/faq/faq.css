@@ -71,3 +71,12 @@
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Agregá esto en el CSS de cada componente (logistica, faq, etc.) */
+:host {
+  display: block;
+  scroll-margin-top: 80px; /* Da un aire antes de llegar al título */
+}
+
+/* Ajustá esto en el contenedor de tu última sección, ej: .cronograma-container */
+/* src/app/components/faq/faq.css */
