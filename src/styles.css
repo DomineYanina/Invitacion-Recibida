@@ -13,6 +13,10 @@ body {
   color: white;
   margin: 0;
   padding-bottom: 100px; /* Espacio para el reproductor fijo */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h1, h2, .merienda { font-family: 'Merienda', cursive; }
@@ -69,13 +73,13 @@ html {
 }
 
 /* Ajuste para que el contenido respete el ancho del sidebar */
-.main-wrapper {
+.contenido-pagina {
   margin-left: 260px; /* Coincide con el ancho de tu sidebar abierto */
   transition: margin-left 0.4s ease;
   min-height: 100vh;
 }
 
 /* Si tu sidebar se colapsa, podés usar una clase en el body para ajustar este margen */
-body.sidebar-collapsed .main-wrapper {
+body.sidebar-collapsed .contenido-pagina {
   margin-left: 80px;
 }

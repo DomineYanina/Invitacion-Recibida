@@ -1,10 +1,13 @@
 <section class="logistica-container">
   <h2 class="merienda section-title">Cronograma del Triunfo</h2>
+  <p class="section-subtitle delicious-handrawn-regular">
+    Las fechas posibles son: miércoles 15 de julio (entre las 17 y las 20), jueves 16 de julio (entre las 17 y las 20) o el sábado 18 de julio a la mañana. Apenas tenga la fecha y hora confirmada, lo notificaré y actualizaré este cronograma.
+  </p>
 
   <div class="cards-grid">
     <div *ngFor="let item of ubicaciones" class="location-card" [ngClass]="item.tipo">
       <h3 class="henny-penny-regular">{{ item.titulo }}</h3>
-      
+
       <div class="info-group">
         <p><strong>🕒 Hora:</strong> {{ item.hora }}</p>
         <p *ngIf="item.limite" class="alerta-roja">
@@ -15,33 +18,34 @@
 
       <p class="descripcion">{{ item.descripcion }}</p>
 
-      <a [href]="item.linkMaps" target="_blank" class="btn-maps">
+      <a *ngIf="item.linkMaps" [href]="item.linkMaps" target="_blank" class="btn-maps">
         ¿Cómo llegar? 📍
       </a>
     </div>
   </div>
 
-  <div class="plano-campus">
-  <h2 class="merienda subtitle-neon">Mapa del Campus - UNLaM</h2>
-  
-  <div class="map-container">
-    <div class="map-wrapper">
-      <img src="assets/images/plano-unlam-defensa.png" alt="Plano UNLaM" class="img-plano">
-      
-      <div class="pin-aula" title="¡Acá es la defensa!">
-        <span class="ping"></span>
-        <div class="dot"></div>
+  <div id="mapa" class="plano-campus">
+    <h2 class="merienda subtitle-neon">Mapa del Campus - UNLaM</h2>
+
+    <div class="map-container">
+      <div class="map-wrapper">
+        <img src="assets/images/meme auditorio.png" alt="Meme Auditorio" class="img-plano">
+
+        <div class="pin-aula" title="¡Acá es la defensa!">
+          <span class="ping"></span>
+          <div class="dot"></div>
+        </div>
+      </div>
+
+      <div class="acceso-tips">
+        <h4 class="henny-penny-regular">Tips:</h4>
+        <ul class="delicious-handrawn-regular">
+          <li>🚗 <strong>Entrada sugerida:</strong> Florencio Varela 1903 (Entrada Principal).</li>
+          <li>🚶 <strong>Caminata:</strong> Una vez adentro, sigan las flechas hacia el Pabellón de
+            Ingeniería/Económicas (A confirmar).</li>
+          <li>📍 <strong>Aula:</strong> Estén atentos, actualizaré el número exacto aquí mismo.</li>
+        </ul>
       </div>
     </div>
-
-    <div class="acceso-tips">
-      <h4 class="henny-penny-regular">Tips para tus invitados:</h4>
-      <ul class="delicious-handrawn-regular">
-        <li>🚗 <strong>Entrada sugerida:</strong> Florencio Varela 1903 (Entrada Principal).</li>
-        <li>🚶 <strong>Caminata:</strong> Una vez adentro, sigan las flechas hacia el Pabellón de Ingeniería/Económicas (A confirmar).</li>
-        <li>📍 <strong>Aula:</strong> Estén atentos, actualizaré el número exacto aquí mismo.</li>
-      </ul>
-    </div>
   </div>
-</div>
 </section>

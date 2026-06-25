@@ -30,6 +30,7 @@
   color: #2ecc71; /* Texto en verde neón */
   font-weight: bold;
   transition: all 0.3s ease;
+  pointer-events: auto; /* Hace el botón clickeable superando el pointer-events del host */
 }
 
 .bubble-activation:hover {
@@ -54,6 +55,7 @@
   box-shadow: 0 0 30px rgba(46, 204, 113, 0.4);
   animation: slideIn 0.5s ease-out;
   transition: transform 0.4s ease-in-out, opacity 0.4s;
+  pointer-events: auto; /* Permite interactuar con el reproductor */
 }
 
 /* 3. Botón de cerrar (Mantenemos el rojo como acento de "alarma/cerrar") */
@@ -100,6 +102,7 @@
   color: #2ecc71;
   font-size: 1.5rem;
   animation: pulseNeon 2s infinite;
+  pointer-events: auto; /* Permite restaurar el reproductor */
 }
 
 /* player.css */

@@ -15,12 +15,12 @@ export class InstruccionesComponent {
     { nombre: 'Polvos Holi / Glitter', icono: '🌈' },
     { nombre: 'Harina / Huevos / Polenta / Yerba', icono: '🥚' },
     { nombre: 'Pintura (SOLO al agua)', icono: '🎨' },
-    { nombre: 'Espuma / Papel Picado', icono: '🎊' }
+    { nombre: 'Serpentina / Papel Picado', icono: '🎊' }
   ];
 
   prohibidos = [
     { nombre: 'Tijeras (Pelo/Ropa)', icono: '✂️' },
     { nombre: 'Marcadores Permanentes', icono: '🖍️' },
-    { nombre: 'Pintura al Aceite / Sintética', icono: '🚫' }
+    { nombre: 'Pintura al Aceite / Sintética / Espuma', icono: '🚫' }
   ];
 }
