@@ -22,48 +22,20 @@ export class PlayerComponent implements OnInit {
   public safeUrl!: SafeResourceUrl;
   public musicaActivada: boolean = false;
   public estaMinimizado: boolean = false;
-  private player: any;
 
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     // 2. Aplicamos el bypass de seguridad para que Angular confíe en el iframe
-    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.config.musica.playlistUrl);
-
-    // Cargar la API de YouTube si no está ya cargada
-    if (!(window as any)['YT']) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-    }
-
-    // Configurar callback cuando la API esté lista
-    (window as any).onYouTubeIframeAPIReady = () => {
-      if (this.musicaActivada) {
-        this.initPlayer();
-      }
-    };
+    // Agregamos también el origin actual de forma dinámica para cumplir políticas CORS del reproductor de YouTube
+    const currentOrigin = window.location.origin;
+    const finalUrl = `${this.config.musica.playlistUrl}&origin=${encodeURIComponent(currentOrigin)}`;
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(finalUrl);
   }
 
   // 3. Método para activar la interfaz del reproductor tras la interacción del usuario
   activarMusica() {
     this.musicaActivada = true;
-    setTimeout(() => {
-      this.initPlayer();
-    }, 300);
-  }
-
-  initPlayer() {
-    if ((window as any).YT && (window as any).YT.Player) {
-      this.player = new (window as any).YT.Player('yt-player', {
-        events: {
-          'onReady': () => {
-            console.log('YouTube Player is ready');
-          }
-        }
-      });
-    }
   }
 
   toggleMinimizar() {
@@ -71,14 +43,30 @@ export class PlayerComponent implements OnInit {
   }
 
   playAnterior() {
-    if (this.player && typeof this.player.previousVideo === 'function') {
-      this.player.previousVideo();
+    const iframe = document.getElementById('yt-player') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: 'previousVideo',
+          args: []
+        }),
+        '*'
+      );
     }
   }
 
   playSiguiente() {
-    if (this.player && typeof this.player.nextVideo === 'function') {
-      this.player.nextVideo();
+    const iframe = document.getElementById('yt-player') as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: 'nextVideo',
+          args: []
+        }),
+        '*'
+      );
     }
   }
 }
